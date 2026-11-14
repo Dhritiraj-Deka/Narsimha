@@ -12,7 +12,59 @@ This file is for my own personal notes that I will be using to note down the new
 
 2) Running Python
     -requirements.txt is a "pre-registered" file that states all the libs that
-     are required for the python projecet.
+     are required for the python project.
     -Running "pip install -r requirements.txt" installs all the required libs
-     that are required for the python projecet.
-    -
+     that are required for the python project.
+    
+    2.0)What is python-pip?
+        -pip is a python package manager like pacman for arch
+
+    2.1)What are .env files?
+        - .env files store env vars that are the sensitive stuff that the application
+            needs
+
+            for eg: 
+                - API_KEY = as3ff21ds
+                - Database_pass = asd!@#
+                - DEBUG = true
+        -It iss wise to keep passwords and APIs out of the source code and it makes 
+        config easy to manage.
+        -Prevents secrets being released to github
+    2.2)What is a py virtual env?
+        - isolated py workspace for a project
+        - this helps is keeping things seperated and clean
+            for example, one project uses py 1 and the other uses py 2
+            they can be different at the same time 
+        
+        2.2.1)How to set it up?
+
+            I) this creates the env            
+                'python -m venv .venv'
+
+            II) this activates the env
+                'source .venv/bin/activate'
+                (THIS is for bash or Zsh, but gives error on my FISH)
+                'same as before but activate.fish'
+                (THIS is for FISH)
+                
+                II.a)To verify if it's runnning 
+                    -There will  be a (.venv) in the left
+                    -'which python' gives you the exact location of the venv
+            
+            III) install required python libs
+                'pip install -r requirements.txt'
+
+                III.a)To check all installed libs
+                    -'python -m pip list' or 'pip list'
+
+            IV) To deactivate the env
+                'deactivate'
+
+        2.2.2)Things to keep in mind about venv
+            I) python -m 'command' and 'command'
+                -running the command directly runs it on a system level
+                    using system path
+                -running the command through -m makes it run as a module
+                    associated within the project itself.
+                -but when a venv is running and selected, both commands 
+                    should work the same way but -m is good habbit  

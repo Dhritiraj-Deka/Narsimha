@@ -1,0 +1,20 @@
+#python virtual env
+.venv/
+
+#python cache
+__pycache__/
+
+#python compiled files
+*.pyc
+
+#python log files
+*.log
+
+#generated reports
+/reports/*.csv
+
+#python env vars
+.env
+
+#my notes file
+personal_notes.txt
