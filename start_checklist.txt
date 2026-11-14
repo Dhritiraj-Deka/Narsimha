@@ -1,4 +1,19 @@
-To start this project
+Prerequisits
+1) Python
+2) Pip
 
-1) Set up python
-    1.1)
+
+To start this project
+1) set up python venv (Once per machine, before anything)
+    python -m venv .venv
+2) start the venv
+    #FOR WINDOWS
+    do .venv\Scripts\Activate.ps1 (Runs the powershell script)
+    #FOR LINUX
+    source .venv/bin/activate.fish
+    (Remove .fish if not using fish terminal)
+3) Download required libs
+    python -m pip install -r requirements.txt
+
+To check if all libs are present
+python -c "import streamlit, pandas, matplotlib, folium, streamlit_folium, requests; print('All libraries working!')"

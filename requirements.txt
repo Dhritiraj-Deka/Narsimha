@@ -1,3 +1,6 @@
-streamlit
-pandas
-matplotlib
+streamlit #Dashboard/frontend
+pandas #csV Processing
+matplotlib #Charts and graphs
+folium #Interactive world map
+streamlit-folium #Making them work together
+requests #for ip stuff
