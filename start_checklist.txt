@@ -1,0 +1,4 @@
+To start this project
+
+1) Set up python
+    1.1)
