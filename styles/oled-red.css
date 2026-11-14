@@ -1,0 +1,61 @@
+/* OLED-RED THEME */
+
+/*Main Application*/
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+main {
+    background-color: black;
+}
+
+/*Top Header - targets the span inside the main area's title h1*/
+.stMain .stHeading h1 span {
+    color: #FF2424 !important;
+}
+
+/*Sidebar*/
+[data-testid="stSidebar"] {
+    background: black;
+    border-right: 1px solid #292929;
+}
+
+/*Text*/
+h2,
+h3,
+h4,
+p,
+label,
+span {
+    color: #FFFFFF;
+}
+
+
+/* Metric cards */
+[data-testid="stMetric"] {
+    background: #000000 !important;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+[data-testid="stMetricValue"] {
+    color: #FF2424 !important;
+}
+
+/* Buttons */
+.stButton>button {
+    background: #000000;
+    color: #FFFFFF;
+    border: 1px solid #FF2424;
+    border-radius: 4px;
+}
+
+.stButton>button:hover {
+    background: #FF2424;
+    color: #FFFFFF;
+}
+
+/* Dividers */
+hr {
+    border-color: #292929 !important;
+}
