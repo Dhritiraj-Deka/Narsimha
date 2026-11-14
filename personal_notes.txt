@@ -1,0 +1,18 @@
+This file is for my own personal notes that I will be using to note down the new things that I learn here.
+
+1) CSV files:
+    -CSV (Comma-Seprated Values) is a plain text file that stores tabular data
+    -Values are seprated by commas, and each line is a record
+
+    Eg:
+        name,age,city
+        John,25,New York
+        Jane,30,Los Angeles
+        Bob,35,Chicago
+
+2) Running Python
+    -requirements.txt is a "pre-registered" file that states all the libs that
+     are required for the python projecet.
+    -Running "pip install -r requirements.txt" installs all the required libs
+     that are required for the python projecet.
+    -
