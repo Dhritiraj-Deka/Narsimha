@@ -15,6 +15,11 @@ st.set_page_config(
 globe_css = Path("styles/globe.css").read_text(encoding="utf-8")
 globe_js = Path("scripts/globe.js").read_text(encoding="utf-8")
 
+# Load simulated attack data (Panda reads this and loads it)
+mock_attacks = pd.read_csv("sample_data/mock_attacks.csv")
+
+# Convert records into JSON for JavaScript (Panda makes it json)
+attacks_json = mock_attacks.to_json(orient="records")
 # Build the globe interface
 globe_html = f"""
 <!DOCTYPE html>
@@ -80,15 +85,19 @@ globe_html = f"""
     
     <!--loading  the country borders (i think)-->
     <script src="https://unpkg.com/globe.gl"></script>
-    <!-- Load Globe.gl -->
-    <script src="https://unpkg.com/globe.gl"></script>
 
     <!-- Load our globe logic -->
     <script>
         {globe_js}
 
         const container = document.getElementById("globeViz");
-        initializeGlobe(container);
+        const attacks = {attacks_json};
+
+        console.log("Attacks data received:",attacks);
+        console.log("Number of attacks:", attacks.length);
+
+        
+        initializeGlobe(container,attacks);
     </script>
 
 </body>

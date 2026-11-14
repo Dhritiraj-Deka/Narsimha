@@ -1,0 +1,12 @@
+
+ip_address,city,country,latitude,longitude,failed_attempts,usernames,first_seen,last_seen,status,data_source
+192.0.2.10,New York,United States,40.7128,-74.0060,45,admin|root|user,2026-11-14 01:10:00,2026-11-14 01:12:30,HIGH,SIMULATED
+192.0.2.20,London,United Kingdom,51.5072,-0.1276,18,admin|test,2026-11-14 01:15:00,2026-11-14 01:16:20,MEDIUM,SIMULATED
+192.0.2.30,Frankfurt,Germany,50.1109,8.6821,72,root|admin|administrator,2026-11-14 01:20:00,2026-11-14 01:24:00,CRITICAL,SIMULATED
+192.0.2.40,Mumbai,India,19.0760,72.8777,12,admin,2026-11-14 01:25:00,2026-11-14 01:26:00,LOW,SIMULATED
+192.0.2.50,Tokyo,Japan,35.6762,139.6503,34,root|admin,2026-11-14 01:30:00,2026-11-14 01:32:00,HIGH,SIMULATED
+192.0.2.60,Singapore,Singapore,1.3521,103.8198,8,test|guest,2026-11-14 01:35:00,2026-11-14 01:35:45,LOW,SIMULATED
+192.0.2.70,Sydney,Australia,-33.8688,151.2093,25,admin|user,2026-11-14 01:40:00,2026-11-14 01:42:00,MEDIUM,SIMULATED
+192.0.2.80,Sao Paulo,Brazil,-23.5505,-46.6333,56,root|admin|test,2026-11-14 01:45:00,2026-11-14 01:48:00,HIGH,SIMULATED
+192.0.2.90,Cape Town,South Africa,-33.9249,18.4241,15,admin,2026-11-14 01:50:00,2026-11-14 01:51:00,MEDIUM,SIMULATED
+192.0.2.100,Delhi,India,28.6139,77.2090,95,root|admin|administrator|test,2026-11-14 01:55:00,2026-11-14 02:00:00,CRITICAL,SIMULATED

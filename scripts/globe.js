@@ -1,5 +1,5 @@
-
-function initializeGlobe(container) {
+const THREE = window.THREE;
+function initializeGlobe(container, attacks) {
 
     const world = Globe()(container)
 
@@ -17,7 +17,14 @@ function initializeGlobe(container) {
         });
 
     // Remove default lighting
-    world.lights([]);
+    // world.lights([]); --THIS EATS ALL LIGHTS OF THE WORLD!!
+
+    // method 2 to keep ambient lighting and remove da sun
+
+    const ambientLights = world.lights().filter(
+        light => light.type === "AmbientLight"
+    );
+    world.lights(ambientLights);
 
     // Load country boundaries
     fetch(
@@ -44,11 +51,57 @@ function initializeGlobe(container) {
         .catch(error => {
             console.error('Country loading error:', error);
         });
+    // Attack locations
+    world
+        .pointsData(attacks) //Supplies attack records
+        .pointLat("latitude")   //Reads latitude
+        .pointLng("longitude")  //"" Longitude
+        .pointColor(() => "#ff2424") //RED RED RED
+        .pointAltitude(0.015) //gives the marker height
+        .pointRadius(0.2) //marker size
+        .pointsMerge(false);
 
-    // Rotation
-    world.controls().autoRotate = true;
-    world.controls().autoRotateSpeed = 0.35;
-    world.controls().enableZoom = true;
+
+
+
+
+
+    // Rotation //
+
+    const controls = world.controls();
+
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -0.35;
+    controls.enableZoom = true;
+
+    let idleTimer;
+
+    // Resume rotation 10 seconds after interaction
+    function resumeRotationAfterIdle() {
+        clearTimeout(idleTimer);
+
+        idleTimer = setTimeout(() => {
+            controls.autoRotate = true;
+        }, 30000); //This is counted in miliseconds, 10k ms is 10 s
+    }
+
+    // Stop rotation and restart the countdown
+    function stopRotation() {
+        controls.autoRotate = false;
+        resumeRotationAfterIdle();
+    }
+
+    // Detect user interaction
+    container.addEventListener('pointerdown', stopRotation);
+
+    container.addEventListener('pointermove', (event) => {
+        if (event.buttons > 0) {
+            stopRotation();
+        }
+    });
+
+    container.addEventListener('wheel', stopRotation);
+    container.addEventListener('touchstart', stopRotation);
 
     return world;
 }
