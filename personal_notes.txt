@@ -68,3 +68,33 @@ This file is for my own personal notes that I will be using to note down the new
                     associated within the project itself.
                 -but when a venv is running and selected, both commands 
                     should work the same way but -m is good habbit  
+
+3) Different Libs used
+    3.1) Python Libs
+        
+        -Streamlit:
+            Builds the web app interface and dashboard using python.
+            Handles page layout, navigation and displays data.
+
+        -Pandas:
+            Reads CSV files, processes authentication records, filters 
+            data and analyses failed login attempts
+
+        -Matplotlib:
+            Creates charts and graphs to visualise attack statistics and 
+            login activity
+
+        -requests:
+            sends HTTP requests to external services particularly IP APIs
+    
+    3.2) JS libs
+
+        -Globe.gl: 
+            3D geographical visualisation. Used to render the globe, country polygons,
+            attack markers, camera controls and interactive geographical elements.
+
+        -Three.js:
+            Underlying 3D graphics engine used by Globe.gl, it provides scene management,
+            geometries, materials, lighting, cameras and custom 3D objects.
+    
+

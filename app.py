@@ -169,4 +169,4 @@ st.sidebar.caption("NARSIMHA v1.0")
 st.sidebar.caption("Brute Force Detection System")
 
 #Temporary Test code
-st.header(page)
+#st.header(page)
