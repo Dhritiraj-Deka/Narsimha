@@ -1,4 +1,6 @@
 import streamlit as st
+import streamlit.components.v1 as components
+from pathlib import Path
 import pandas as pd
 
 #page config
@@ -7,6 +9,97 @@ st.set_page_config(
     page_icon ="🛡️",
     layout="wide",
     initial_sidebar_state="expanded"
+)
+
+# Load our CSS and JavaScript files
+globe_css = Path("styles/globe.css").read_text(encoding="utf-8")
+globe_js = Path("scripts/globe.js").read_text(encoding="utf-8")
+
+# Build the globe interface
+globe_html = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        {globe_css}
+    </style>
+</head>
+
+<body>
+
+    <div id="globe-root">
+
+        <!-- Interactive globe -->
+        <div id="globeViz"></div>
+
+        <!-- Top navigation -->
+        <div id="topbar">
+            <div id="brand">NARSIMHA</div>
+            <div id="system-status">● SYSTEM ONLINE</div>
+        </div>
+
+        <!-- Attack information panel -->
+        <div id="attack-panel" hidden>
+
+            <button id="panel-close" onclick="
+                document.getElementById('attack-panel').hidden = true;
+            ">×</button>
+
+            <div id="panel-title">
+                THREAT INTELLIGENCE
+            </div>
+
+            <div class="attack-field">
+                <div class="attack-label">IP ADDRESS</div>
+                <div class="attack-value" id="attack-ip">--</div>
+            </div>
+
+            <div class="attack-field">
+                <div class="attack-label">LOCATION</div>
+                <div class="attack-value" id="attack-location">--</div>
+            </div>
+
+            <div class="attack-field">
+                <div class="attack-label">FAILED ATTEMPTS</div>
+                <div class="attack-value threat-value" id="attack-count">--</div>
+            </div>
+
+            <div class="attack-field">
+                <div class="attack-label">TARGETED USERNAMES</div>
+                <div class="attack-value" id="attack-users">--</div>
+            </div>
+
+            <div class="attack-field">
+                <div class="attack-label">THREAT STATUS</div>
+                <div class="attack-value threat-value" id="attack-status">--</div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <!--loading  the country borders (i think)-->
+    <script src="https://unpkg.com/globe.gl"></script>
+    <!-- Load Globe.gl -->
+    <script src="https://unpkg.com/globe.gl"></script>
+
+    <!-- Load our globe logic -->
+    <script>
+        {globe_js}
+
+        const container = document.getElementById("globeViz");
+        initializeGlobe(container);
+    </script>
+
+</body>
+</html>
+"""
+
+# Display the interface
+components.html(
+    globe_html,
+    height=850,
+    scrolling=False
 )
 
 #Load CSS theme
@@ -47,19 +140,19 @@ st.divider()
 #SIDEBAR NAVIGATE#
 ##################
 
-st.sidebar.title("NARSIMHA")
-st.sidebar.caption("NAVIGATION")
+#st.sidebar.title("NARSIMHA")
+#st.sidebar.caption("NAVIGATION")
 
-page=st.sidebar.radio(
-    "Navigate",
-    [
-        "Overview",
-        "Attack Map",
-        "Suspicious IPs",
-        "Authentication Logs",
-        "Reports"
-    ]
-)
+#page=st.sidebar.radio(
+    #"Navigate",
+    #[
+        #"Overview",
+        #"Attack Map",
+        #"Suspicious IPs",
+        #"Authentication Logs",
+        #"Reports"
+    #]
+#)
 
 st.sidebar.divider()
 

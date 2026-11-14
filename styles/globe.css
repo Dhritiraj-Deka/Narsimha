@@ -1,0 +1,121 @@
+/* =================================
+   NARSIMHA — GLOBE INTERFACE
+   ================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000000;
+    font-family: Arial, sans-serif;
+}
+
+#globe-root {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+    background: #000000;
+}
+
+#globeViz {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Top navigation */
+#topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 30px;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.9),
+            transparent);
+    pointer-events: none;
+}
+
+#brand {
+    color: #FF2424;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+#system-status {
+    color: #FFFFFF;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* Right-side attack panel */
+#attack-panel {
+    position: absolute;
+    top: 85px;
+    right: 25px;
+    bottom: 25px;
+    width: 340px;
+    z-index: 20;
+    box-sizing: border-box;
+    padding: 22px;
+    overflow-y: auto;
+
+    background: rgba(0, 0, 0, 0.92);
+    border: 1px solid #333333;
+    border-top: 2px solid #FF2424;
+
+    color: #FFFFFF;
+}
+
+#attack-panel[hidden] {
+    display: none;
+}
+
+#panel-close {
+    float: right;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#panel-title {
+    color: #FF2424;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.attack-field {
+    margin-bottom: 20px;
+}
+
+.attack-label {
+    color: #999999;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.attack-value {
+    color: #FFFFFF;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.threat-value {
+    color: #FF2424;
+    font-weight: bold;
+}
