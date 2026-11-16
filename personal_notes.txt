@@ -97,4 +97,11 @@ This file is for my own personal notes that I will be using to note down the new
             Underlying 3D graphics engine used by Globe.gl, it provides scene management,
             geometries, materials, lighting, cameras and custom 3D objects.
     
+UNSORTED:
+1) dataframe is a table of data used by pandas, it is structured as
+        "key":["value","242"],
+        "k2":["v2","v2.2"]
 
+    where value is related to v2 and 242 is related to v2.2
+
+2)pd.read_csv("xyz.csv") reads csv and converts it into dataframe
